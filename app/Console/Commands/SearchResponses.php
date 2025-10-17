@@ -37,11 +37,7 @@ class SearchResponses extends Command
 
         $embeddings = $queryEmbedding->embeddings[0]->embedding;
 
-        //dump($embeddings);
-
         $similarResponses = Response::findSimilar($embeddings);
-        
-        dump($similarResponses);
 
         foreach ($similarResponses as $response) {
             dump("Question: " . $response->question);
